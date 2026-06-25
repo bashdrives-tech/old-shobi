@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18264716985"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18264716985');
+      gtag('config', 'GT-5R6XWLP8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms | Shobi Travels</title>
+    
+    <!-- Outfit Font (Exact geometric look from screenshot) + Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --primary-dark: #050814; 
+            --accent-yellow: #ffb300; 
+            --bg-light: #f4f6fa; 
+            --text-dark: #0f172a; 
+            --text-light: #ffffff; 
+            --text-muted: #64748b; 
+            --wa-green: #25d366; 
+            --border-radius-lg: 32px; 
+            --border-radius-md: 16px; 
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', 'Poppins', sans-serif; }
+        body { 
+            background-color: var(--primary-dark); 
+            color: var(--text-light); 
+            display: flex; 
+            justify-content: center; 
+            background-image: radial-gradient(circle at 50% 0%, #111634 0%, #050814 100%);
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        .app-container { 
+            width: 100%; max-width: 480px; background-color: transparent; 
+            position: relative; min-height: 100vh; padding-bottom: 110px; overflow-x: hidden; 
+        }
+        
+        /* HEADER (Transparent Fixed Style - scrolls with page) */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 12px 16px; 
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 20px; 
+            position: fixed; 
+            top: 15px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: calc(100% - 30px); 
+            max-width: 450px; 
+            z-index: 1000; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+        }
+        .header-spacer {
+            height: 85px; /* Offset to prevent fixed header from covering top of hero content */
+            width: 100%;
+        }
+        .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.1rem; text-decoration: none; color: white; letter-spacing: 0.5px; }
+        .logo-icon { 
+            background: var(--accent-yellow); 
+            color: var(--primary-dark); 
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 8px; 
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+        .header-actions { display: flex; gap: 8px; }
+        .icon-btn { width: 38px; height: 38px; border-radius: 10px; border: none; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: all 0.2s; }
+        .btn-call-yellow { background: var(--accent-yellow); color: var(--primary-dark); text-decoration: none; font-size: 1rem; }
+        
+        /* HERO SECTION */
+        .hero { padding: 10px 20px 25px; text-align: center; }
+        .badge { 
+            display: inline-block; 
+            border: 1px solid rgba(255, 179, 0, 0.25); 
+            color: var(--accent-yellow); 
+            padding: 6px 14px; 
+            border-radius: 30px; 
+            font-size: 0.65rem; 
+            font-weight: 700; 
+            letter-spacing: 1.5px; 
+            margin-bottom: 20px; 
+            background: rgba(255, 179, 0, 0.05); 
+            text-transform: uppercase;
+        }
+        .hero h1 { font-size: 2.1rem; font-weight: 900; line-height: 1.15; margin-bottom: 12px; text-transform: uppercase; letter-spacing: -0.5px; }
+        .hero h1 span { color: var(--accent-yellow); }
+
+        /* CONTENT AREA (Sleek Floating Card Look with Rounded Gap Margins) */
+        .content-area { 
+            background: #ffffff; 
+            border-radius: var(--border-radius-lg); 
+            padding: 35px 24px 40px; 
+            color: var(--text-dark); 
+            margin: 10px 15px 30px 15px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); 
+            line-height: 1.7;
+        }
+        .legal-section { margin-bottom: 30px; }
+        .legal-section h2 { 
+            font-size: 1.05rem; 
+            font-weight: 900; 
+            color: var(--primary-dark); 
+            margin-bottom: 12px; 
+            border-left: 4px solid var(--accent-yellow); 
+            padding-left: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .legal-section p, .legal-section ul { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; font-weight: 500; }
+        .legal-section ul { padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+        .legal-section li { list-style-type: square; }
+        .legal-section strong { color: var(--primary-dark); font-weight: 700; }
+
+        /* HIGH-CONVERTING GOOGLE ADS SPLIT STICKY BOTTOM BAR */
+        .fixed-bottom { 
+            position: fixed; 
+            bottom: 15px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 30px);
+            max-width: 450px; 
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 10px 12px; 
+            display: flex; 
+            gap: 10px; 
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.15); 
+            z-index: 1000; 
+        }
+        .btn-main-call, .btn-main-whatsapp { 
+            flex: 1; 
+            border: none; 
+            border-radius: 14px; 
+            font-size: 0.8rem; 
+            font-weight: 800; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 6px; 
+            cursor: pointer; 
+            text-decoration: none; 
+            padding: 14px 8px;
+            transition: all 0.2s;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .btn-main-call {
+            background: var(--primary-dark); 
+            color: #ffffff; 
+        }
+        .btn-main-call:hover { background: #111634; }
+        .btn-main-whatsapp {
+            background: var(--wa-green); 
+            color: #ffffff; 
+        }
+        .btn-main-whatsapp:hover { background: #20ba5a; }
+    </style>
+</head>
+<body>
+<div class="app-container">
+    <!-- Header Fixed Spacer -->
+    <div class="header-spacer"></div>
+
+    <header>
+        <a href="index.html" class="logo">
+            <span class="logo-icon">←</span>
+            BACK
+        </a>
+        <div class="header-actions">
+            <a href="tel:+918870918674" class="icon-btn btn-call-yellow">📞</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="badge">🟢 TERMS & PRIVACY</div>
+        <h1>Privacy Policy &<br><span>Terms of Service</span></h1>
+    </section>
+
+    <section class="content-area">
+        <div class="legal-section">
+            <h2>1. Introduction</h2>
+            <p>This Privacy Policy explains how Shobi Travels collects, uses, and protects your information.</p>
+        </div>
+        <div class="legal-section">
+            <h2>2. Information We Collect</h2>
+            <p>We collect your name, mobile number (+91), and trip locations to fulfill your requests.</p>
+        </div>
+        <div class="legal-section">
+            <h2>3. Terms & Conditions</h2>
+            <ul>
+                <li>Fares provided are estimates based on distance.</li>
+                <li>Tolls, state permits, parking, and Hill Station charges are extra.</li>
+                <li>Night driving (10 PM to 6 AM) attracts a night bata.</li>
+            </ul>
+        </div>
+        <div class="legal-section">
+            <h2>4. Contact Us</h2>
+            <p><strong>Phone:</strong> +91 88709 18674<br><strong>Email:</strong> booking@shobitravels.com<br><strong>Address:</strong> Civil Aerodrome, Coimbatore, Tamil Nadu, India</p>
+        </div>
+    </section>
+
+    <footer class="main-footer" style="padding: 20px; text-align: center;">
+        <div style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px; font-weight: 700;">Booking: +91 88709 18674</div>
+        <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">© 2026 SHOBI TRAVELS.</div>
+    </footer>
+
+    <!-- Google Ads High-Converting Split Sticky Bottom Bar -->
+    <div class="fixed-bottom">
+        <a href="tel:+918870918674" class="btn-main-call">
+            <!-- SVG Call Icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            CALL NOW
+        </a>
+        <a href="https://wa.me/918870918674" class="btn-main-whatsapp">
+            <!-- SVG WhatsApp Icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.115-2.908-6.995-1.878-1.88-4.357-2.912-6.997-2.914-5.443 0-9.873 4.419-9.877 9.864-.001 1.77.461 3.5 1.341 5.042l-.995 3.634 3.747-.982zm11.233-7.534c-.31-.155-1.837-.907-2.122-.101l-.547.747c-.155.155-.31.31-.62.155-1.24-.62-2.12-.928-2.944-1.748-.206-.206-.31-.412-.155-.618l.515-.515c.155-.155.206-.31.31-.515.103-.206.051-.412-.026-.566-.077-.155-.618-1.493-.846-2.04-.22-.53-.443-.456-.607-.464-.156-.008-.337-.008-.517-.008s-.466.067-.711.335c-.246.268-.94.918-.94 2.242s.963 2.6 1.096 2.781c.133.18 1.896 2.896 4.593 4.06.64.277 1.141.443 1.53.567.643.204 1.229.175 1.691.107.514-.077 1.517-.618 1.73-.122s.31.96.206 1.12c-.103.16-.515.258-.773.258z"/>
+            </svg>
+            WHATSAPP
+        </a>
+    </div>
+</div>
+</body>
+</html>

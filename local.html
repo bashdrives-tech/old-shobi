@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18264716985"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18264716985');
+      gtag('config', 'GT-5R6XWLP8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Taxi Service | Shobi Travels</title>
+    
+    <!-- Outfit Font (Exact geometric look from screenshot) + Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --primary-dark: #050814; 
+            --accent-yellow: #ffb300; 
+            --bg-light: #f4f6fa; 
+            --text-dark: #0f172a; 
+            --text-light: #ffffff; 
+            --text-muted: #94a3b8; 
+            --wa-green: #25d366; 
+            --border-radius-lg: 32px; 
+            --border-radius-md: 16px; 
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', 'Poppins', sans-serif; }
+        body { 
+            background-color: var(--primary-dark); 
+            color: var(--text-light); 
+            display: flex; 
+            justify-content: center; 
+            background-image: radial-gradient(circle at 50% 0%, #111634 0%, #050814 100%);
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        .app-container { 
+            width: 100%; max-width: 480px; background-color: transparent; 
+            position: relative; min-height: 100vh; padding-bottom: 110px; overflow-x: hidden; 
+        }
+        
+        /* HEADER (Transparent Fixed Style - scrolls with page) */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 12px 16px; 
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 20px; 
+            position: fixed; 
+            top: 15px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: calc(100% - 30px); 
+            max-width: 450px; 
+            z-index: 1000; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+        }
+        .header-spacer {
+            height: 85px; /* Offset to prevent fixed header from covering top of hero content */
+            width: 100%;
+        }
+        .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.1rem; text-decoration: none; color: white; letter-spacing: 0.5px; }
+        .logo-icon { 
+            background: var(--accent-yellow); 
+            color: var(--primary-dark); 
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 8px; 
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+        .header-actions { display: flex; gap: 8px; }
+        .icon-btn { width: 38px; height: 38px; border-radius: 10px; border: none; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: all 0.2s; }
+        .btn-call-yellow { background: var(--accent-yellow); color: var(--primary-dark); text-decoration: none; font-size: 1rem; }
+        
+        /* HERO SECTION */
+        .hero { padding: 10px 20px 25px; text-align: center; }
+        .badge { 
+            display: inline-block; 
+            border: 1px solid rgba(255, 179, 0, 0.25); 
+            color: var(--accent-yellow); 
+            padding: 6px 14px; 
+            border-radius: 30px; 
+            font-size: 0.65rem; 
+            font-weight: 700; 
+            letter-spacing: 1.5px; 
+            margin-bottom: 20px; 
+            background: rgba(255, 179, 0, 0.05); 
+            text-transform: uppercase;
+        }
+        .hero h1 { font-size: 2.1rem; font-weight: 900; line-height: 1.15; margin-bottom: 12px; text-transform: uppercase; letter-spacing: -0.5px; }
+        .hero h1 span { color: var(--accent-yellow); }
+        .hero p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 25px; padding: 0 10px; }
+        
+        /* BOOKING WIDGET (Sleek Floating Card Look with Rounded Gap Margins) */
+        .booking-widget { 
+            background: #ffffff; 
+            border-radius: var(--border-radius-lg); 
+            padding: 35px 24px 40px; 
+            color: var(--text-dark); 
+            margin: 10px 15px 30px 15px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); 
+        }
+        .widget-title { font-size: 1.1rem; font-weight: 900; color: var(--primary-dark); margin-bottom: 20px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        .input-group { margin-bottom: 20px; position: relative; }
+        .input-group label { 
+            display: flex; 
+            align-items: center; 
+            gap: 6px; 
+            font-size: 0.65rem; 
+            color: var(--text-muted); 
+            font-weight: 700; 
+            margin-bottom: 8px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+        }
+        .input-field { 
+            width: 100%; 
+            background: var(--bg-light); 
+            border: 1px solid rgba(0,0,0,0.03); 
+            padding: 16px 45px 16px 16px; 
+            border-radius: 14px; 
+            font-size: 0.95rem; 
+            font-weight: 600; 
+            color: var(--text-dark); 
+            outline: none; 
+            transition: all 0.2s;
+        }
+        .input-field:focus {
+            background: #ffffff;
+            border-color: var(--accent-yellow);
+            box-shadow: 0 4px 20px rgba(255, 179, 0, 0.08);
+        }
+        
+        /* GPS Locator Icon Inside Input */
+        .gps-btn {
+            position: absolute;
+            right: 15px;
+            bottom: 12px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: all 0.2s;
+        }
+        .gps-btn:hover {
+            color: var(--accent-yellow);
+            background: rgba(255,179,0,0.05);
+        }
+
+        .fleet-header { font-size: 0.65rem; color: var(--text-muted); font-weight: 700; margin-top: 25px; margin-bottom: 15px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; letter-spacing: 0.5px; }
+        .fleet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 25px; }
+        .fleet-card { border: 2px solid var(--bg-light); background: #ffffff; border-radius: var(--border-radius-md); padding: 18px 8px; text-align: center; cursor: pointer; transition: all 0.2s ease; }
+        .fleet-card.selected { border-color: var(--accent-yellow); background: #fffcf0; }
+        .fleet-card img { height: 35px; object-fit: contain; margin-bottom: 6px; }
+        .fleet-title { font-size: 0.7rem; font-weight: 800; color: var(--text-dark); margin-bottom: 4px; text-transform: uppercase; line-height: 1.3; letter-spacing: 0.3px; }
+        .fleet-card.selected .fleet-title { color: #cc8e00; }
+        .fleet-price { font-size: 0.65rem; color: var(--text-muted); font-weight: 700; letter-spacing: 0.3px; }
+        
+        /* CALCULATOR UI */
+        .fare-result-box { display: none; background: #fafafa; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; margin-bottom: 25px; text-align: center; }
+        .fare-result-box h4 { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 1px; margin-bottom: 5px; }
+        .fare-result-box h2 { font-size: 2.2rem; font-weight: 800; color: #cc8e00; margin-bottom: 5px; line-height: 1; }
+        .fare-result-box p { font-size: 0.7rem; color: var(--text-dark); font-weight: 600; }
+        
+        /* ACTION BUTTONS (Split Action Layout) */
+        .booking-cta-row {
+            display: flex; gap: 12px; align-items: center; margin-top: 25px;
+        }
+        .btn-quote { border: none; padding: 18px; border-radius: var(--border-radius-md); font-size: 0.95rem; font-weight: 800; letter-spacing: 0.5px; cursor: pointer; transition: all 0.2s; text-transform: uppercase; }
+        .btn-calc { background: #050814; color: white; flex: 1; }
+        .btn-calc:hover { background: #111634; transform: translateY(-2px); }
+        .btn-wa { background: var(--wa-green); color: white; display: none; flex: 1; }
+        .btn-wa:hover { background: #20ba5a; transform: translateY(-2px); }
+        .btn-quote:active { transform: scale(0.98); }
+        
+        .btn-whatsapp-circular {
+            width: 58px; height: 58px; background: var(--wa-green); color: white; border: none; border-radius: 16px; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: all 0.2s; text-decoration: none; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2); flex-shrink: 0;
+        }
+        .btn-whatsapp-circular:hover { background: #20ba5a; transform: translateY(-2px); }
+        .btn-whatsapp-circular svg { width: 24px; height: 24px; fill: white; }
+
+        /* HIGH-CONVERTING GOOGLE ADS SPLIT STICKY BOTTOM BAR */
+        .fixed-bottom { 
+            position: fixed; 
+            bottom: 15px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 30px);
+            max-width: 450px; 
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 10px 12px; 
+            display: flex; 
+            gap: 10px; 
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.15); 
+            z-index: 1000; 
+        }
+        .btn-main-call, .btn-main-whatsapp { 
+            flex: 1; 
+            border: none; 
+            border-radius: 14px; 
+            font-size: 0.8rem; 
+            font-weight: 800; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 6px; 
+            cursor: pointer; 
+            text-decoration: none; 
+            padding: 14px 8px;
+            transition: all 0.2s;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .btn-main-call {
+            background: var(--primary-dark); 
+            color: #ffffff; 
+        }
+        .btn-main-call:hover { background: #111634; }
+        .btn-main-whatsapp {
+            background: var(--wa-green); 
+            color: #ffffff; 
+        }
+        .btn-main-whatsapp:hover { background: #20ba5a; }
+
+        .pac-container { z-index: 2050; border-radius: 12px; margin-top: 5px; border: none; box-shadow: 0 4px 20px rgba(0,0,0,0.1); font-family: 'Outfit', 'Poppins', sans-serif; }
+    </style>
+</head>
+<body>
+<div class="app-container">
+    <!-- Header Fixed Spacer -->
+    <div class="header-spacer" id="booking-anchor"></div>
+
+    <header>
+        <a href="index.html" class="logo">
+            <span class="logo-icon">←</span>
+            BACK
+        </a>
+        <div class="header-actions">
+            <a href="tel:+918870918674" class="icon-btn btn-call-yellow">📞</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="badge">🟢 FAST ARRIVALS</div>
+        <h1>CITY <br><span>LOCAL RIDES</span></h1>
+        <p>Instant local taxi booking with Shobi Travels within Coimbatore city limits.</p>
+    </section>
+
+    <section class="booking-widget">
+        <h2 class="widget-title">Book Local Ride</h2>
+        
+        <div class="input-group">
+            <label>📍 Pickup Location</label>
+            <input type="text" id="pickup-input" class="input-field" placeholder="E.g., Gandhipuram" oninput="resetFareUI()">
+            <!-- Current Location Geolocation Trigger Button -->
+            <button class="gps-btn" onclick="getCurrentLocation()" type="button" title="Use current location">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="input-group">
+            <label>🔺 Drop Location</label>
+            <input type="text" id="drop-input" class="input-field" placeholder="E.g., RS Puram" oninput="resetFareUI()">
+        </div>
+
+        <div class="fleet-header">🚐 CHOOSE CAB</div>
+        <div class="fleet-grid">
+            <div class="fleet-card selected" onclick="selectFleet(this)" data-car="Prime Sedan">
+                <img src="sedanmini.png" alt="Sedan">
+                <div class="fleet-title">PRIME SEDAN</div>
+                <div class="fleet-price">CITY TARIFF</div>
+            </div>
+            <div class="fleet-card" onclick="selectFleet(this)" data-car="Comfort SUV">
+                <img src="suvmini.png" alt="SUV">
+                <div class="fleet-title">COMFORT SUV</div>
+                <div class="fleet-price">CITY TARIFF</div>
+            </div>
+        </div>
+
+        <div id="fare-result-box" class="fare-result-box">
+            <h4>Est. Local Fare</h4>
+            <h2 id="fare-amount">₹0</h2>
+            <p id="fare-details">Distance Breakdown</p>
+        </div>
+
+        <!-- Action CTAs matching layout style -->
+        <div class="booking-cta-row">
+            <button class="btn-quote btn-calc" id="btn-calculate" onclick="calculateFare()">CALCULATE FARE ⚡</button>
+            <button class="btn-quote btn-wa" id="btn-whatsapp" onclick="sendWhatsAppQuote()">BOOK VIA WHATSAPP 💬</button>
+            <a href="https://wa.me/918870918674" class="btn-whatsapp-circular" title="Direct WhatsApp Book">
+                <svg viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.115-2.908-6.995-1.878-1.88-4.357-2.912-6.997-2.914-5.443 0-9.873 4.419-9.877 9.864-.001 1.77.461 3.5 1.341 5.042l-.995 3.634 3.747-.982zm11.233-7.534c-.31-.155-1.837-.907-2.122-.101l-.547.747c-.155.155-.31.31-.62.155-1.24-.62-2.12-.928-2.944-1.748-.206-.206-.31-.412-.155-.618l.515-.515c.155-.155.206-.31.31-.515.103-.206.051-.412-.026-.566-.077-.155-.618-1.493-.846-2.04-.22-.53-.443-.456-.607-.464-.156-.008-.337-.008-.517-.008s-.466.067-.711.335c-.246.268-.94.918-.94 2.242s.963 2.6 1.096 2.781c.133.18 1.896 2.896 4.593 4.06.64.277 1.141.443 1.53.567.643.204 1.229.175 1.691.107.514-.077 1.517-.618 1.73-.122s.31.96.206 1.12c-.103.16-.515.258-.773.258z"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <footer class="main-footer" style="padding: 20px; text-align: center;">
+        <div style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px; font-weight: 700;">Booking: +91 88709 18674</div>
+        <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">© 2026 SHOBI TRAVELS.</div>
+    </footer>
+
+    <!-- Google Ads High-Converting Split Sticky Bottom Bar -->
+    <div class="fixed-bottom">
+        <a href="tel:+918870918674" class="btn-main-call">
+            <!-- SVG Call Icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            CALL NOW
+        </a>
+        <a href="https://wa.me/918870918674" class="btn-main-whatsapp">
+            <!-- SVG WhatsApp Icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.115-2.908-6.995-1.878-1.88-4.357-2.912-6.997-2.914-5.443 0-9.873 4.419-9.877 9.864-.001 1.77.461 3.5 1.341 5.042l-.995 3.634 3.747-.982zm11.233-7.534c-.31-.155-1.837-.907-2.122-.101l-.547.747c-.155.155-.31.31-.62.155-1.24-.62-2.12-.928-2.944-1.748-.206-.206-.31-.412-.155-.618l.515-.515c.155-.155.206-.31.31-.515.103-.206.051-.412-.026-.566-.077-.155-.618-1.493-.846-2.04-.22-.53-.443-.456-.607-.464-.156-.008-.337-.008-.517-.008s-.466.067-.711.335c-.246.268-.94.918-.94 2.242s.963 2.6 1.096 2.781c.133.18 1.896 2.896 4.593 4.06.64.277 1.141.443 1.53.567.643.204 1.229.175 1.691.107.514-.077 1.517-.618 1.73-.122s.31.96.206 1.12c-.103.16-.515.258-.773.258z"/>
+            </svg>
+            WHATSAPP
+        </a>
+    </div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7j5s8T369OKe4H69e3jhkGfM2sJhniCo&libraries=places&callback=initMap" async defer></script>
+<script>
+    function initMap() {
+        const options = { componentRestrictions: { country: "in" } };
+        new google.maps.places.Autocomplete(document.getElementById('pickup-input'), options).addListener('place_changed', resetFareUI);
+        new google.maps.places.Autocomplete(document.getElementById('drop-input'), options).addListener('place_changed', resetFareUI);
+    }
+    
+    // Dynamic Geolocation Handler (Resolves user location & fills the Pickup input)
+    function getCurrentLocation() {
+        if (navigator.geolocation) {
+            const gpsBtn = document.querySelector('.gps-btn');
+            gpsBtn.style.color = '#ffb300';
+            
+            navigator.geolocation.getCurrentPosition(position => {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                const geocoder = new google.maps.Geocoder();
+                const latlng = { lat: parseFloat(lat), lng: parseFloat(lng) };
+                
+                geocoder.geocode({ location: latlng }, (results, status) => {
+                    if (status === "OK") {
+                        if (results[0]) {
+                            document.getElementById('pickup-input').value = results[0].formatted_address;
+                            resetFareUI();
+                        } else {
+                            alert("No address results found.");
+                        }
+                    } else {
+                        alert("Geocoder failed due to: " + status);
+                    }
+                });
+            }, error => {
+                alert("Could not retrieve location. Please allow location permissions in your browser.");
+            });
+        } else {
+            alert("Geolocation is not supported by your browser.");
+        }
+    }
+
+    function resetFareUI() {
+        document.getElementById('fare-result-box').style.display = 'none';
+        document.getElementById('btn-whatsapp').style.display = 'none';
+        document.getElementById('btn-calculate').style.display = 'block';
+        document.getElementById('btn-calculate').innerText = "CALCULATE FARE ⚡";
+    }
+    function selectFleet(el) {
+        document.querySelectorAll('.fleet-card').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+        resetFareUI();
+    }
+    function calculateFare() {
+        const origin = document.getElementById('pickup-input').value;
+        const destination = document.getElementById('drop-input').value;
+        if(!origin || !destination) return alert("Please enter both locations.");
+        document.getElementById('btn-calculate').innerText = "CALCULATING... ⏳";
+        new google.maps.DistanceMatrixService().getDistanceMatrix({
+            origins: [origin], destinations: [destination], travelMode: 'DRIVING', unitSystem: google.maps.UnitSystem.METRIC
+        }, function(response, status) {
+            if (status !== 'OK') return;
+            const distance = response.rows[0].elements[0].distance.value / 1000;
+            const totalFare = 80 + (distance * 28);
+            document.getElementById('fare-amount').innerText = "₹" + Math.round(totalFare).toLocaleString('en-IN');
+            document.getElementById('fare-details').innerText = `~${distance.toFixed(1)} km Local Trip`;
+            document.getElementById('fare-result-box').style.display = 'block';
+            document.getElementById('btn-calculate').style.display = 'none';
+            document.getElementById('btn-whatsapp').style.display = 'block';
+        });
+    }
+    function sendWhatsAppQuote() {
+        const pickup = document.getElementById('pickup-input').value;
+        const drop = document.getElementById('drop-input').value;
+        const car = document.querySelector('.fleet-card.selected').querySelector('.fleet-title').innerText;
+        const fare = document.getElementById('fare-amount').innerText;
+        const msg = `Hello Shobi Travels! 🚖\nBooking Local Ride:\n\n*Pickup:* ${pickup}\n*Drop:* ${drop}\n*Vehicle:* ${car}\n*Est Fare:* ${fare}`;
+        window.open(`https://wa.me/918870918674?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+</script>
+</body>
+</html>

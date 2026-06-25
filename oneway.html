@@ -1,1 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18264716985"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18264716985');
+      gtag('config', 'GT-5R6XWLP8');
+    </script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Way Drop Taxi | Shobi Travels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-dark: #0a0b16; --primary-yellow: #ffcc00; --bg-light: #f5f6fa; --text-dark: #1e293b; --text-light: #ffffff; --text-muted: #94a3b8; --wa-green: #25d366; --border-radius-lg: 30px; --border-radius-md: 12px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--primary-dark); color: var(--text-light); display: flex; justify-content: center; }
+        .app-container { width: 100%; max-width: 480px; background-color: var(--primary-dark); position: relative; min-height: 100vh; padding-bottom: 90px; overflow-x: hidden; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px; position: sticky; top: 0; background: rgba(10, 11, 22, 0.95); z-index: 100; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.2rem; text-decoration: none; color: white;}
+        .logo-icon { background: var(--primary-yellow); color: var(--primary-dark); padding: 8px 12px; border-radius: 8px; font-size: 1.2rem; }
+        .hero { padding: 20px 20px 40px; text-align: center; }
+        .badge { display: inline-block; border: 1px solid rgba(255, 204, 0, 0.3); color: var(--primary-yellow); padding: 6px 16px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; margin-bottom: 20px; background: rgba(255, 204, 0, 0.05); }
+        .hero h1 { font-size: 1.85rem; font-weight: 800; line-height: 1.25; margin-bottom: 15px; }
+        .hero h1 span { color: var(--primary-yellow); }
+        .booking-widget { background: #ffffff; border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0; padding: 40px 20px; color: var(--text-dark); }
+        .widget-title { font-size: 1.1rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 20px; text-align: center; }
+        .input-group { margin-bottom: 15px; position: relative;}
+        .input-group label { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-bottom: 8px; }
+        .input-field { width: 100%; background: var(--bg-light); border: none; padding: 16px; border-radius: 12px; font-size: 0.95rem; font-weight: 500; color: var(--text-dark); outline: none; }
+        .fleet-header { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-top: 25px; margin-bottom: 15px; }
+        .fleet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 25px; }
+        .fleet-card { border: 2px solid var(--bg-light); background: #ffffff; border-radius: var(--border-radius-md); padding: 15px 8px; text-align: center; cursor: pointer; transition: all 0.2s ease; }
+        .fleet-card.selected { border-color: var(--primary-yellow); background: #fffcf0; }
+        .fleet-card img { height: 40px; margin-bottom: 8px; }
+        .fleet-title { font-size: 0.65rem; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+        .fleet-price { font-size: 0.65rem; color: var(--text-muted); font-weight: 600; }
+        .fare-result-box { display: none; background: #fafafa; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; margin-bottom: 20px; text-align: center; }
+        .fare-result-box h4 { font-size: 0.75rem; color: var(--text-muted); font-weight: 700; margin-bottom: 5px; }
+        .fare-result-box h2 { font-size: 2.2rem; font-weight: 800; color: #d4a300; margin-bottom: 5px; line-height: 1; }
+        .fare-result-box p { font-size: 0.7rem; color: var(--text-dark); font-weight: 600; }
+        .btn-quote { width: 100%; border: none; padding: 18px; border-radius: var(--border-radius-md); font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: transform 0.2s; }
+        .btn-calc { background: #f8c966; color: #8c6a26; margin-bottom: 20px; }
+        .btn-wa { background: var(--wa-green); color: white; display: none; margin-bottom: 20px; }
+        .fixed-bottom { position: fixed; bottom: 0; width: 100%; max-width: 480px; background: #ffffff; padding: 15px 20px; display: flex; gap: 15px; box-shadow: 0 -5px 20px rgba(0,0,0,0.05); z-index: 90; }
+        .btn-main-call { flex: 1; background: var(--primary-dark); color: #ffffff; border: none; border-radius: 16px; font-size: 1rem; font-weight: 600; display: flex; justify-content: center; align-items: center; gap: 10px; text-decoration: none; }
+        .btn-whatsapp { width: 60px; height: 60px; background: var(--wa-green); color: white; border: none; border-radius: 16px; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; text-decoration: none; }
+        .pac-container { z-index: 1050; border-radius: 12px; margin-top: 5px; border: none; box-shadow: 0 4px 20px rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body>
+<div class="app-container">
+    <header><a href="index.html" class="logo"><div class="logo-icon">←</div>BACK</a></header>
+    <section class="hero">
+        <div class="badge">🟢 PAY ONLY FOR THE DROP</div>
+        <h1>PREMIUM <br><span>ONE WAY TAXI</span></h1>
+        <p>Why pay for a return trip? Book a dedicated one-way drop taxi with Shobi Travels to any district in Tamil Nadu.</p>
+    </section>
+    <section class="booking-widget">
+        <h2 class="widget-title">Book Your Drop</h2>
+        <div class="input-group">
+            <label>📍 Pickup Location</label>
+            <input type="text" id="pickup-input" class="input-field" placeholder="Enter Pickup City" oninput="resetFareUI()">
+        </div>
+        <div class="input-group">
+            <label>🔺 Drop Location</label>
+            <input type="text" id="drop-input" class="input-field" placeholder="Enter Drop City" oninput="resetFareUI()">
+        </div>
+        <div class="fleet-header">🚐 CHOOSE YOUR CAB</div>
+        <div class="fleet-grid">
+            <div class="fleet-card selected" onclick="selectFleet(this)" data-car="Prime Sedan" data-rate-oneway="14">
+                <img src="https://i.postimg.cc/tCCG0R0q/car-sedan-placeholder.png" alt="Sedan">
+                <div class="fleet-title">PRIME SEDAN</div>
+                <div class="fleet-price">₹14/KM</div>
+            </div>
+            <div class="fleet-card" onclick="selectFleet(this)" data-car="Comfort SUV" data-rate-oneway="19">
+                <img src="https://i.postimg.cc/GpdvxNfH/car-suv-placeholder.png" alt="SUV">
+                <div class="fleet-title">COMFORT SUV</div>
+                <div class="fleet-price">₹19/KM</div>
+            </div>
+        </div>
+        <div id="fare-result-box" class="fare-result-box">
+            <h4>Estimated Drop Fare</h4>
+            <h2 id="fare-amount">₹0</h2>
+            <p id="fare-details">Distance Breakdown</p>
+        </div>
+        <button class="btn-quote btn-calc" id="btn-calculate" onclick="calculateFare()">CALCULATE FARE ></button>
+        <button class="btn-quote btn-wa" id="btn-whatsapp" onclick="sendWhatsAppQuote()">BOOK VIA WHATSAPP 💬</button>
+    </section>
+    
+    <footer class="main-footer" style="padding: 20px; text-align: center;">
+        <div style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px; font-weight: 700;">Booking: +91 88709 18674</div>
+        <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">© 2026 SHOBI TRAVELS.</div>
+    </footer>
+
+    <div class="fixed-bottom">
+        <a href="tel:+918870918674" class="btn-main-call">📞 CALL NOW</a>
+        <a href="https://wa.me/918870918674" class="btn-whatsapp">💬</a>
+    </div>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7j5s8T369OKe4H69e3jhkGfM2sJhniCo&libraries=places&callback=initMap" async defer></script>
+<script>
+    function initMap() {
+        const options = { componentRestrictions: { country: "in" } };
+        new google.maps.places.Autocomplete(document.getElementById('pickup-input'), options).addListener('place_changed', resetFareUI);
+        new google.maps.places.Autocomplete(document.getElementById('drop-input'), options).addListener('place_changed', resetFareUI);
+    }
+    function resetFareUI() {
+        document.getElementById('fare-result-box').style.display = 'none';
+        document.getElementById('btn-whatsapp').style.display = 'none';
+        document.getElementById('btn-calculate').style.display = 'block';
+    }
+    function selectFleet(el) {
+        document.querySelectorAll('.fleet-card').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+        resetFareUI();
+    }
+    function calculateFare() {
+        const origin = document.getElementById('pickup-input').value;
+        const destination = document.getElementById('drop-input').value;
+        if(!origin || !destination) return alert("Please enter both locations.");
+        document.getElementById('btn-calculate').innerText = "CALCULATING... ⏳";
+        new google.maps.DistanceMatrixService().getDistanceMatrix({
+            origins: [origin], destinations: [destination], travelMode: 'DRIVING', unitSystem: google.maps.UnitSystem.METRIC
+        }, function(response, status) {
+            if (status !== 'OK' || response.rows[0].elements[0].status === 'ZERO_RESULTS') return;
+            const distance = response.rows[0].elements[0].distance.value / 1000;
+            const rate = parseFloat(document.querySelector('.fleet-card.selected').getAttribute('data-rate-oneway'));
+            
+            let hillCharge = 0;
+            if(["ooty", "kodaikanal", "valparai", "munnar", "coonoor", "nilgiris", "yercaud"].some(s => destination.toLowerCase().includes(s))) hillCharge = 400;
+
+            const billableKm = Math.max(distance, 130);
+            const totalFare = (billableKm * rate) + 400 + hillCharge;
+            
+            document.getElementById('fare-amount').innerText = "₹" + Math.round(totalFare).toLocaleString('en-IN');
+            document.getElementById('fare-details').innerText = `~${distance.toFixed(1)} km (Billed Min 130km) + ₹400 Bata` + (hillCharge ? ` + ₹400 Hill Charge` : ``);
+            document.getElementById('fare-result-box').style.display = 'block';
+            document.getElementById('btn-calculate').style.display = 'none';
+            document.getElementById('btn-whatsapp').style.display = 'block';
+        });
+    }
+    function sendWhatsAppQuote() {
+        const pickup = document.getElementById('pickup-input').value;
+        const drop = document.getElementById('drop-input').value;
+        const car = document.querySelector('.fleet-card.selected').querySelector('.fleet-title').innerText;
+        const fare = document.getElementById('fare-amount').innerText;
+        const msg = `Hello Shobi Travels! 🚖\nBooking ONE WAY:\n\n*Pickup:* ${pickup}\n*Drop:* ${drop}\n*Vehicle:* ${car}\n*Est Fare:* ${fare}`;
+        window.open(`https://wa.me/918870918674?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+</script>
+</body>
+</html>
